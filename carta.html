@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Una carta especial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: url('fondo-principito.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .carta {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #ffc6d0;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Estrellas flotantes */
+    .estrella {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: flotar 10s linear infinite;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenedor de estrellas -->
+  <div id="estrellas"></div>
+
+  <div class="carta">
+    <h1>Para ti, mi querida luz</h1>
+<p>
+  Te dije que volvería, y en mi corazón esa fue la verdad por mucho tiempo.<br><br>
+  Pero hay silencios que se vuelven respuestas, y hay caminos que, por más que los deseemos, no se cruzan de nuevo.<br><br>
+  Hoy no regreso, pero eso no borra lo que fuiste para mí: una luz suave, como faro en una noche sin luna.<br><br>
+  Fuiste abrigo, sonrisa inesperada, hogar en palabras simples.<br>
+  Fuiste amiga cuando más lo necesitaba, sin pedir nada a cambio. Y eso... eso lo guardaré por siempre, como se guarda una flor entre las páginas de un libro muy amado.<br><br>
+  Me voy con gratitud y sin rencores. Con la certeza de que, si alguna vez me piensas, será con ternura y no con dolor.<br><br>
+  Cuídate mucho, Lusesita. Que la vida te sea suave y brillante, como tú supiste serlo conmigo.<br><br>
+  Siempre estarás en lo bonito de mis recuerdos.<br><br>
+  Con cariño infinito,<br>
+  <strong>Ema el chino Gómez</strong>
+</p>
+
+  </div>
+
+  <script>
+    // Crear estrellas dinámicamente
+    const totalEstrellas = 60;
+    const contenedor = document.getElementById('estrellas');
+
+    for (let i = 0; i < totalEstrellas; i++) {
+      const estrella = document.createElement('div');
+      estrella.classList.add('estrella');
+      estrella.style.left = `${Math.random() * 100}vw`;
+      estrella.style.animationDuration = `${5 + Math.random() * 10}s`;
+      estrella.style.animationDelay = `${Math.random() * 10}s`;
+      estrella.style.width = estrella.style.height = `${2 + Math.random() * 3}px`;
+      contenedor.appendChild(estrella);
+    }
+  </script>
+</body>
+</html>
